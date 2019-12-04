@@ -59,6 +59,9 @@ public class Portal : MonoBehaviour
         Portal otherPortal = GetOtherPortal();
         UpdapePlayer(otherPortal);
 
+        //Save last scene
+        wrapper.Save();
+
         yield return new WaitForSeconds(fadeWaitTime);
         yield return fader.FadeIn(fadeInTime);
 
