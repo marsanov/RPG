@@ -74,6 +74,11 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8947891263399216277, guid: 1a76293d3b7bbef4690499003c26357d,
+        type: 3}
+      propertyPath: maxHealthPoints
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8214381248050630919, guid: 1a76293d3b7bbef4690499003c26357d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -128,6 +133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878858631076985371, guid: 1a76293d3b7bbef4690499003c26357d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a76293d3b7bbef4690499003c26357d, type: 3}

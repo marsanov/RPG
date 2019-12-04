@@ -10,15 +10,20 @@ namespace RPG.Core
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float healthPoints = 100f;
-        private float startHealthPoints;
+        [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] private Image healthBar;
 
         private bool isDead = false;
 
         void Start()
         {
+            CheckMaxHealthPoints();
+        }
 
-            startHealthPoints = healthPoints;
+        private void CheckMaxHealthPoints()
+        {
+            if (maxHealthPoints < healthPoints)
+                maxHealthPoints = healthPoints;
         }
 
         public bool IsDead()
@@ -29,7 +34,7 @@ namespace RPG.Core
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
-            healthBar.fillAmount = healthPoints / startHealthPoints;
+            healthBar.fillAmount = healthPoints / maxHealthPoints;
             if (healthPoints == 0)
             {
                 Die();
@@ -57,6 +62,8 @@ namespace RPG.Core
         public void RestoreState(object state)
         {
             healthPoints = (float) state;
+            CheckMaxHealthPoints();
+            healthBar.fillAmount = healthPoints / maxHealthPoints;
             if (healthPoints == 0)
             {
                 Die();

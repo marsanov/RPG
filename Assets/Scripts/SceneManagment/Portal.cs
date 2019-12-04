@@ -46,7 +46,15 @@ public class Portal : MonoBehaviour
         Fader fader = FindObjectOfType<Fader>();
 
         yield return fader.FadeOut(fadeOutTime);
+
+        //Save current level
+        SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+        wrapper.Save();
+
         yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
+        //Load current level
+        wrapper.Load();
 
         Portal otherPortal = GetOtherPortal();
         UpdapePlayer(otherPortal);
@@ -61,8 +69,10 @@ public class Portal : MonoBehaviour
     private void UpdapePlayer(Portal otherPortal)
     {
         GameObject player = GameObject.FindWithTag("Player");
+        player.GetComponent<NavMeshAgent>().enabled = false;
         player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
         player.transform.rotation = otherPortal.spawnPoint.rotation;
+        player.GetComponent<NavMeshAgent>().enabled = true;
     }
 
     private Portal GetOtherPortal()
