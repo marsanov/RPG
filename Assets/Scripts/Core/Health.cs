@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using RPG.Saving;
 
 namespace RPG.Core
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float healthPoints = 100f;
         private float startHealthPoints;
@@ -46,6 +47,20 @@ namespace RPG.Core
             GetComponent<NavMeshAgent>().enabled = false;
             transform.GetChild(1).gameObject.SetActive(false);
             GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        public object CaptureState()
+        {
+            return healthPoints;
+        }
+
+        public void RestoreState(object state)
+        {
+            healthPoints = (float) state;
+            if (healthPoints == 0)
+            {
+                Die();
+            }
         }
     }
 }
