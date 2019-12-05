@@ -59,13 +59,6 @@ namespace RPG.Control
                          + Vector3.right * mController.Horizontal()
                          + Vector3.forward * mController.Vertical();
 
-            //float inputX = transform.rotation.x * mController.Horizontal();
-            //float inputZ = transform.rotation.y * mController.Vertical();
-
-            //moveVector.x += inputX;
-            //moveVector.z += inputZ;
-            //moveVector.y = 0;
-
             if (moveVector != transform.position)
             {
                 GetComponent<Mover>().StartMoveAction(moveVector);

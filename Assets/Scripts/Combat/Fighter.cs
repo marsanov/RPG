@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RPG.Combat
 {
@@ -22,7 +23,7 @@ namespace RPG.Combat
             if(target == null) return;
             if(target.IsDead()) return;
 
-            if (!GetIsInRange())
+            if (!GetIsInRange(target.transform))
             {
                 GetComponent<Mover>().MoveTo(target.transform.position);
             }
@@ -51,9 +52,9 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("attack");
         }
 
-        private bool GetIsInRange()
+        private bool GetIsInRange(Transform targetTransform)
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, targetTransform.position) < weaponRange;
         }
 
         public void Attack(GameObject combatTarget)
@@ -73,6 +74,7 @@ namespace RPG.Combat
         {
             StopAttack();
             target = null;
+            GetComponent<Mover>().Cancel();
         }
 
         private void StopAttack()

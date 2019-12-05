@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Combat;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -44,12 +45,10 @@ namespace RPG.Core
         private void Die()
         {
             if(isDead) return;
+
             isDead = true;
-
             GetComponent<Animator>().SetTrigger("die");
-
             GetComponent<CapsuleCollider>().enabled = false;
-            GetComponent<NavMeshAgent>().enabled = false;
             transform.GetChild(1).gameObject.SetActive(false);
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
