@@ -13,13 +13,15 @@ namespace RPG.Combat
         [SerializeField] private float timeBetweenAttacks = 1f;
         [SerializeField] private Transform handTransform = null;
         [SerializeField] private Weapon weapon = null;
+        [SerializeField] private Weapon defaultWeapon = null;
 
         private Health target;
         private float timeSinceLastAttack = Mathf.Infinity;
+        private Weapon currentWeapon = null;
 
         void Start()
         {
-            SpawnWeapon();
+            EquippWeapon(defaultWeapon);
         }
 
         void Update()
@@ -40,9 +42,9 @@ namespace RPG.Combat
             }
         }
 
-        private void SpawnWeapon()
+        public void EquippWeapon(Weapon weapon)
         {
-            if (weapon == null) return;
+            currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(handTransform, animator);
         }
