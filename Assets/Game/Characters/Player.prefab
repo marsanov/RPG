@@ -78,6 +78,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 880858dfd9b1e784e89d45242bf78d2b, type: 3}
+--- !u!4 &2433776129853783104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 483062, guid: 880858dfd9b1e784e89d45242bf78d2b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2433776129853956790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2433776129853796624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496550, guid: 880858dfd9b1e784e89d45242bf78d2b,
@@ -183,6 +189,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 31934d59efdde9c43afa7182e6390504,
         type: 2}
+    - target: {fileID: 8139367638420173851, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 2433776129853783104}
+    - target: {fileID: 8139367638420173851, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 2433776129853796624}
     - target: {fileID: -2522364513977393504, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: healthBar
