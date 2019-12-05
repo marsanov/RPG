@@ -51,12 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b258246d8b6f43745bfed20c3a76f1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRange: 1.2
   timeBetweenAttacks: 0.7
-  weaponDamage: 5
-  weaponPrefab: {fileID: 0}
   handTransform: {fileID: 0}
-  weaponOverride: {fileID: 22100000, guid: 90947dfeee28d10429ce344059240bbf, type: 2}
+  weapon: {fileID: 11400000, guid: c3002f260451680478b76508fb6fe54f, type: 2}
 --- !u!95 &3731661370671467195
 Animator:
   serializedVersion: 3
