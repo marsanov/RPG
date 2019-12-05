@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.7
-  handTransform: {fileID: 0}
-  weapon: {fileID: 11400000, guid: c3002f260451680478b76508fb6fe54f, type: 2}
-  defaultWeapon: {fileID: 0}
+  rightHandTransform: {fileID: 0}
+  leftHandTransform: {fileID: 0}
+  defaultWeapon: {fileID: 11400000, guid: c3002f260451680478b76508fb6fe54f, type: 2}
 --- !u!95 &3731661370671467195
 Animator:
   serializedVersion: 3
