@@ -14,6 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8022937207524632324, guid: de1f29ce76f313a44825d9572a67df26,
         type: 3}
+      propertyPath: destroyOnHit.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022937207524632324, guid: de1f29ce76f313a44825d9572a67df26,
+        type: 3}
       propertyPath: isHoming
       value: 1
       objectReference: {fileID: 0}
@@ -28,6 +33,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db,
         type: 3}
+    - target: {fileID: 8022937207524632324, guid: de1f29ce76f313a44825d9572a67df26,
+        type: 3}
+      propertyPath: destroyOnHit.Array.data[0]
+      value: 
+      objectReference: {fileID: 2074761434881240867}
     - target: {fileID: 1454848140601659398, guid: de1f29ce76f313a44825d9572a67df26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -216,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 8914251023412852145, guid: e6b02f2f1758ab54f9ad9ff97fbdbf1e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8914251023412852145, guid: e6b02f2f1758ab54f9ad9ff97fbdbf1e,
         type: 3}
@@ -235,3 +245,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b02f2f1758ab54f9ad9ff97fbdbf1e, type: 3}
+--- !u!1 &2074761434881240867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8914251023412367505, guid: e6b02f2f1758ab54f9ad9ff97fbdbf1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7457609805846200242}
+  m_PrefabAsset: {fileID: 0}

@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed = 1;
     [SerializeField] private bool isHoming = true;
     [SerializeField] private GameObject hitEffect = null;
+    [SerializeField] private float maxLifeTime = 10f;
+    [SerializeField] private GameObject[] destroyOnHit = null;
+    [SerializeField] private float lifeAfterImpact = 2f;
 
     private Health target = null;
     private float damage = 0;
@@ -16,6 +19,8 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         transform.LookAt(GetAimLocation());
+
+        Destroy(gameObject, maxLifeTime);
     }
 
     // Update is called once per frame
@@ -54,10 +59,18 @@ public class Projectile : MonoBehaviour
 
         target.TakeDamage(damage);
 
+        speed = 0;
+
         if (hitEffect != null)
         {
             Instantiate(hitEffect, GetAimLocation(), transform.rotation);
         }
-        Destroy(gameObject);
+
+        foreach (GameObject toDestroy in destroyOnHit)
+        {
+            Destroy(toDestroy);
+        }
+
+        Destroy(gameObject, lifeAfterImpact);
     }
 }
