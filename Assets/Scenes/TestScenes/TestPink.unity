@@ -224,8 +224,77 @@ Transform:
   - {fileID: 186758413}
   - {fileID: 2062943441}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &143704086
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7640750456138185257, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_Name
+      value: Sword Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.40178204
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.40986347
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.7217283
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017251345562398184, guid: d99730487d71be245955e76446530b51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d99730487d71be245955e76446530b51, type: 3}
 --- !u!1 &186758411
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +505,7 @@ PrefabInstance:
     - target: {fileID: 8474664646535564784, guid: ebbd50d7d1431024d94d6836f61487de,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8474664646535564784, guid: ebbd50d7d1431024d94d6836f61487de,
         type: 3}
@@ -515,7 +584,7 @@ PrefabInstance:
     - target: {fileID: 4920155044861319189, guid: 8d473841c9ecaae4c9ff2013af89a43f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4920155044861319189, guid: 8d473841c9ecaae4c9ff2013af89a43f,
         type: 3}
@@ -589,7 +658,7 @@ PrefabInstance:
     - target: {fileID: 3042232457130300147, guid: ba3b861454639914a93faac4a6fb6f85,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3042232457130300147, guid: ba3b861454639914a93faac4a6fb6f85,
         type: 3}
@@ -631,10 +700,20 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2876179233235863393, guid: ba3b861454639914a93faac4a6fb6f85,
+        type: 3}
+      propertyPath: maxHealthPoints
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 855728660167699930, guid: ba3b861454639914a93faac4a6fb6f85,
         type: 3}
       propertyPath: weaponDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855728660167699930, guid: ba3b861454639914a93faac4a6fb6f85,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1822139675742601507, guid: ba3b861454639914a93faac4a6fb6f85,
         type: 3}
