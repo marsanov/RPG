@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     {
         if (target == null) return;
 
-        if (isHoming || !target.IsDead())
+        if (isHoming && !target.IsDead())
         {
             transform.LookAt(GetAimLocation());
         }

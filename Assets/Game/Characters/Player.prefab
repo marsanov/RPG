@@ -172,6 +172,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7087950516926945506, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 8139367638420173851, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: weaponPrefab
@@ -204,11 +209,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 5588922333045551144}
-    - target: {fileID: 7087950516926945506, guid: 9a6f3982ce81e584fa458028a5dd96d6,
-        type: 3}
-      propertyPath: uniqueIdentifier
-      value: player
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 673511628880269726, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}
