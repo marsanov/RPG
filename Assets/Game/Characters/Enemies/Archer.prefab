@@ -74,15 +74,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5775689340435885614, guid: 1a76293d3b7bbef4690499003c26357d,
         type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 35e816f10fdd12f4a8c5771fdf8a21f2,
-        type: 2}
-    - target: {fileID: 5775689340435885614, guid: 1a76293d3b7bbef4690499003c26357d,
-        type: 3}
       propertyPath: defaultWeaponName
       value: Bow
       objectReference: {fileID: 0}
+    - target: {fileID: 5775689340435885614, guid: 1a76293d3b7bbef4690499003c26357d,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 892e5976cae6944479f35f6ba085e5a1,
+        type: 2}
     - target: {fileID: 3484243529448429203, guid: 1a76293d3b7bbef4690499003c26357d,
         type: 3}
       propertyPath: m_IsActive

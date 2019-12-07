@@ -3,35 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Core;
 using RPG.Movement;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] private float timeBetweenAttacks = 1f;
         [SerializeField] private Transform rightHandTransform = null;
         [SerializeField] private Transform leftHandTransform = null;
         [SerializeField] private Weapon defaultWeapon = null;
-        [SerializeField] private string defaultWeaponName = "Unarmed";
 
         private Health target;
         private float timeSinceLastAttack = Mathf.Infinity;
         private Weapon currentWeapon = null;
 
-        void Start()
+        void Awake()
         {
-            Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
-            EquippWeapon(weapon);
+            if (currentWeapon == null)
+            {
+                EquippWeapon(defaultWeapon);
+            }
         }
 
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-            
-            if(target == null) return;
-            if(target.IsDead()) return;
+
+            if (target == null) return;
+            if (target.IsDead()) return;
 
             if (!GetIsInRange(target.transform))
             {
@@ -103,7 +105,7 @@ namespace RPG.Combat
         //Animation Event
         void Hit()
         {
-            if(target == null) return;
+            if (target == null) return;
 
             if (currentWeapon.HasProjectile())
             {
@@ -118,6 +120,18 @@ namespace RPG.Combat
         void Shoot()
         {
             Hit();
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string) state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquippWeapon(weapon);
         }
     }
 

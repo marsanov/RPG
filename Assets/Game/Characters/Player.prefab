@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: rightHandTransform
       value: 
       objectReference: {fileID: 2433776129853796624}
+    - target: {fileID: 8139367638420173851, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: defaultWeaponName
+      value: Unarmed
+      objectReference: {fileID: 0}
     - target: {fileID: -2522364513977393504, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: healthBar

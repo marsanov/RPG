@@ -43,6 +43,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equipped Fireball
       objectReference: {fileID: 0}
+    - target: {fileID: 8267053539238466479, guid: 61058744a48beed4bb4926bd02f578c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8267053539238786703, guid: 61058744a48beed4bb4926bd02f578c8,
         type: 3}
       propertyPath: m_LocalPosition.x
