@@ -12,12 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer
       objectReference: {fileID: 0}
-    - target: {fileID: 5775689340435885614, guid: 1a76293d3b7bbef4690499003c26357d,
+    - target: {fileID: 2557693059974783404, guid: 1a76293d3b7bbef4690499003c26357d,
         type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 35e816f10fdd12f4a8c5771fdf8a21f2,
-        type: 2}
+      propertyPath: chaseDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8214381248050630919, guid: 1a76293d3b7bbef4690499003c26357d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73,10 +72,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2557693059974783404, guid: 1a76293d3b7bbef4690499003c26357d,
+    - target: {fileID: 5775689340435885614, guid: 1a76293d3b7bbef4690499003c26357d,
         type: 3}
-      propertyPath: chaseDistance
-      value: 15
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 35e816f10fdd12f4a8c5771fdf8a21f2,
+        type: 2}
+    - target: {fileID: 5775689340435885614, guid: 1a76293d3b7bbef4690499003c26357d,
+        type: 3}
+      propertyPath: defaultWeaponName
+      value: Bow
       objectReference: {fileID: 0}
     - target: {fileID: 3484243529448429203, guid: 1a76293d3b7bbef4690499003c26357d,
         type: 3}
