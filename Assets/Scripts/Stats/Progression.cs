@@ -1,8 +1,19 @@
-﻿using UnityEngine;
+﻿using RPG.Stats;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 0)]
-
-public class Progression : ScriptableObject
+namespace Rpg.Stats
 {
+    [CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 0)]
 
+    public class Progression : ScriptableObject
+    {
+        [SerializeField] private ProgressionCharacterClass[] characterClasses = null;
+
+        [System.Serializable]
+        class ProgressionCharacterClass
+        {
+            [SerializeField] private CharacterClass characterClass;
+            [SerializeField] private float[] health;
+        }
+    }
 }
