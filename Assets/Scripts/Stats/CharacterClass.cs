@@ -4,6 +4,7 @@
     {
         Player,
         Grunt,
-        Mage
+        Mage,
+        Archer
     }
 }

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7087950516926945506}
   - component: {fileID: 1780592751745701069}
   - component: {fileID: 4660113570076317498}
+  - component: {fileID: 117324438144504112}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -56,7 +57,6 @@ MonoBehaviour:
   rightHandTransform: {fileID: 0}
   leftHandTransform: {fileID: 0}
   defaultWeapon: {fileID: 11400000, guid: c3002f260451680478b76508fb6fe54f, type: 2}
-  defaultWeaponName: Unarmed
 --- !u!95 &3731661370671467195
 Animator:
   serializedVersion: 3
@@ -192,3 +192,17 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &117324438144504112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751448395614109994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3901ef6eaa3fd468ef8db481c1f337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  characterClass: 1
