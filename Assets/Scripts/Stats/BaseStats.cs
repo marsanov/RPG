@@ -27,6 +27,11 @@ namespace RPG.Stats
         {
             startingLevel = (int) state;
         }
+
+        public float GetExpirienceReward()
+        {
+            return 10f;
+        }
     }
 
 }
