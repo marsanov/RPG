@@ -7,7 +7,7 @@ namespace RPG.Stats
     public class BaseStats : MonoBehaviour
     {
         [SerializeField] private int level = 1;
-        [SerializeField] private string characterClass;
+        [SerializeField] private CharacterClass characterClass;
     }
 
 }

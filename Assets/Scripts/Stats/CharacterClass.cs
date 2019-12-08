@@ -1,18 +1,9 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class NewMonoBehaviour : MonoBehaviour
+﻿namespace RPG.Stats
 {
-
-    // Use this for initialization
-    void Start()
+    enum CharacterClass
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Player,
+        Grunt,
+        Mage
     }
 }
