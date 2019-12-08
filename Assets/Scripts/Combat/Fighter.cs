@@ -34,6 +34,7 @@ namespace RPG.Combat
 
             if (target == null) return;
             if (target.IsDead()) return;
+            if (target.gameObject == this.gameObject) return;
 
             if (!GetIsInRange(target.transform))
             {
