@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using RPG.Saving;
+using RPG.Stats;
+using RPG.Core;
 
-namespace RPG.Core
+namespace RPG.Resources
 {
     public class Health : MonoBehaviour, ISaveable
     {
@@ -19,6 +21,7 @@ namespace RPG.Core
         void Start()
         {
             CheckMaxHealthPoints();
+            healthPoints = GetComponent<BaseStats>().GetHealth();
         }
 
         private void CheckMaxHealthPoints()
