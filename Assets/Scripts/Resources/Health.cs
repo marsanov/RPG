@@ -8,6 +8,7 @@ using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
 using System;
+using Rpg.Stats;
 
 namespace RPG.Resources
 {
@@ -21,12 +22,12 @@ namespace RPG.Resources
 
         void Awake()
         {
-            healthPoints = GetComponent<BaseStats>().GetHealth();
+            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
         void Start()
         {
-            maxHealthPoints = GetComponent<BaseStats>().GetHealth();
+            maxHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
             HealthBarUpdate();
         }
 
@@ -51,7 +52,7 @@ namespace RPG.Resources
             Expirience expirience = instigator.GetComponent<Expirience>();
             if(expirience == null) return;
 
-            float expirienceReward = GetComponent<BaseStats>().GetExpirienceReward();
+            float expirienceReward = GetComponent<BaseStats>().GetStat(Stat.ExpirienceRaward);
             expirience.GainExpirience(expirienceReward);
         }
 
