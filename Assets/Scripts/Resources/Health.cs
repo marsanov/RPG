@@ -18,16 +18,15 @@ namespace RPG.Resources
 
         private bool isDead = false;
 
-        void Start()
+        void Awake()
         {
-            CheckMaxHealthPoints();
             healthPoints = GetComponent<BaseStats>().GetHealth();
         }
 
-        private void CheckMaxHealthPoints()
+        void Start()
         {
-            if (maxHealthPoints < healthPoints)
-                maxHealthPoints = healthPoints;
+            maxHealthPoints = GetComponent<BaseStats>().GetHealth();
+            HealthBarUpdate();
         }
 
         public bool IsDead()
@@ -38,7 +37,7 @@ namespace RPG.Resources
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
-            healthBar.fillAmount = healthPoints / maxHealthPoints;
+            HealthBarUpdate();
             if (healthPoints == 0)
             {
                 Die();
@@ -63,13 +62,17 @@ namespace RPG.Resources
 
         public void RestoreState(object state)
         {
-            healthPoints = (float) state;
-            CheckMaxHealthPoints();
-            healthBar.fillAmount = healthPoints / maxHealthPoints;
+            healthPoints = (float)state;
+            HealthBarUpdate();
             if (healthPoints == 0)
             {
                 Die();
             }
+        }
+
+        private void HealthBarUpdate()
+        {
+            healthBar.fillAmount = healthPoints / maxHealthPoints;
         }
     }
 }
