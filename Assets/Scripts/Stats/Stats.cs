@@ -5,6 +5,7 @@ namespace Rpg.Stats
     public enum Stat
     {
         Health,
-        ExpirienceRaward
+        ExpirienceRaward,
+        ExpirienceToLevelUp
     }
 }
