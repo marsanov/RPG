@@ -14,15 +14,23 @@ namespace RPG.Resources
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        [SerializeField] float healthPoints = 100f;
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] private Image healthBar;
 
+        private float healthPoints = -1f;
         private bool isDead = false;
 
-        void Awake()
+        //void Awake()
+        //{
+        //    healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+        //}
+
+        void Start()
         {
-            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+            if (healthPoints < 0)
+            {
+                healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+            }
         }
 
         void Update()
@@ -76,7 +84,7 @@ namespace RPG.Resources
         {
             healthPoints = (float)state;
             HealthBarUpdate();
-            if (healthPoints == 0)
+            if (healthPoints <= 0)
             {
                 Die();
             }
