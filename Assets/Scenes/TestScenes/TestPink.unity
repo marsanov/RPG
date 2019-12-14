@@ -455,6 +455,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deddf0e78cbd12840bb800a06a7f03a1, type: 3}
+--- !u!1 &522555671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6644522537442978199, guid: 8261e9f3c6d6ba947ae94d5563ba3780,
+    type: 3}
+  m_PrefabInstance: {fileID: 857562512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &522555675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522555671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4532fd64203c47642837b27a1c6e4d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expirienceToNextLevel: 100
 --- !u!1001 &673098164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -723,6 +742,22 @@ PrefabInstance:
       propertyPath: startingLevel
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1127865167057164163, guid: 8261e9f3c6d6ba947ae94d5563ba3780,
+        type: 3}
+      propertyPath: expirienceBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071612368680125924, guid: 8261e9f3c6d6ba947ae94d5563ba3780,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045433806019604174, guid: 8261e9f3c6d6ba947ae94d5563ba3780,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c7e27f7366aaab14c917eb6757d5fffd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8261e9f3c6d6ba947ae94d5563ba3780, type: 3}
 --- !u!1001 &1152067592

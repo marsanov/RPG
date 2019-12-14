@@ -23,7 +23,7 @@ namespace RPG.Resources
             expiriencePints = (float) state;
         }
 
-        public float GetCurrentExpirience()
+        public float GetPoints()
         {
             return expiriencePints;
         }

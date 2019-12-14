@@ -21,6 +21,6 @@ public class ExpirienceDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         gameObject.GetComponent<Image>().fillAmount = player.GetComponent<Expirience>().GetCurrentExpirience() / expirienceToNextLevel;
+         gameObject.GetComponent<Image>().fillAmount = player.GetComponent<Expirience>().GetPoints() / expirienceToNextLevel;
     }
 }

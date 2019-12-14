@@ -30,6 +30,14 @@ MonoBehaviour:
     - stat: 1
       levels:
       - 10
+  - characterClass: 2
+    stats:
+    - stat: 0
+      levels:
+      - 10
+    - stat: 1
+      levels:
+      - 20
   - characterClass: 3
     stats:
     - stat: 0
