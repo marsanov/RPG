@@ -25,7 +25,7 @@ namespace RPG.Resources
             healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        void Start()
+        void Update()
         {
             maxHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
             HealthBarUpdate();
