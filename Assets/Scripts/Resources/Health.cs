@@ -19,12 +19,7 @@ namespace RPG.Resources
 
         private float healthPoints = -1f;
         private bool isDead = false;
-
-        //void Awake()
-        //{
-        //    healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
-        //}
-
+        
         void Start()
         {
             if (healthPoints < 0)
