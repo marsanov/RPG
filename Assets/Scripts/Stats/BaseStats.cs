@@ -16,6 +16,8 @@ namespace RPG.Stats
 
         private int currentLevel = 0;
 
+        public event Action onLevelUp;
+
         void Start()
         {
             currentLevel = CalculateLevel();
@@ -33,6 +35,7 @@ namespace RPG.Stats
             {
                 currentLevel = newLevel;
                 LevelUpEffect();
+                onLevelUp();
             }
         }
 
