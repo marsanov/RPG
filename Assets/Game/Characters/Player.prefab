@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7465743946249447676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707879539256850578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebbcb5d50bcfa0742ae5a8e763428d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mController: {fileID: 0}
 --- !u!114 &712407323439149636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +13,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expiriencePints: 0
+--- !u!114 &7465743946249447676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707879539256850578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbcb5d50bcfa0742ae5a8e763428d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mController: {fileID: 0}
 --- !u!1001 &2433776129853956790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +185,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 117324438144504112, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117324438144504112, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: levelUpParticleEffect
+      value: 
+      objectReference: {fileID: 4764180700963551110, guid: 2d4b0a8d5ca6e8e4583a144bdeee340e,
+        type: 3}
     - target: {fileID: 7087950516926945506, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: uniqueIdentifier
@@ -227,11 +238,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 5588922333045551144}
-    - target: {fileID: 117324438144504112, guid: 9a6f3982ce81e584fa458028a5dd96d6,
-        type: 3}
-      propertyPath: characterClass
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 673511628880269726, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}

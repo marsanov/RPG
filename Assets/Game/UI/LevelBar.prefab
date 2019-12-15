@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expirienceToNextLevel: 100
+  progresiion: {fileID: 11400000, guid: be4f245088cf2bb48897957cfc457234, type: 2}
 --- !u!1 &4687407215172433967
 GameObject:
   m_ObjectHideFlags: 0
