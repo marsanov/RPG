@@ -15,6 +15,7 @@ namespace RPG.SceneManagement
 
         public void FadeOutImmediate()
         {
+            if(canvasGroup == null) return;
             canvasGroup.alpha = 1;
         }
 

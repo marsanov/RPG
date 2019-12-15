@@ -6,6 +6,7 @@ namespace Rpg.Stats
     {
         Health,
         ExpirienceRaward,
-        ExpirienceToLevelUp
+        ExpirienceToLevelUp,
+        Damage,
     }
 }
