@@ -114,7 +114,7 @@ namespace RPG.Stats
             float currentXP = expirience.GetPoints();
             int penultimateLevel = progression.GetLevels(Stat.ExpirienceToLevelUp, characterClass);
 
-            for (int level = 1; level < penultimateLevel; level++)
+            for (int level = 1; level <= penultimateLevel; level++)
             {
                 float XPToLevelUp = progression.GetStat(Stat.ExpirienceToLevelUp, characterClass, level);
 
