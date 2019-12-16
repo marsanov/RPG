@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Rpg.Stats
+namespace RPG.Stats
 {
     public enum Stat
     {

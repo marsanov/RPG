@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Rpg.Stats;
 using RPG.Resources;
 using UnityEngine;
 using UnityEngine.Assertions.Must;

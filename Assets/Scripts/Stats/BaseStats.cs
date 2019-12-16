@@ -1,5 +1,4 @@
 ﻿using System;
-using Rpg.Stats;
 using RPG.Resources;
 using RPG.Saving;
 using UnityEngine;
@@ -46,7 +45,21 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(stat, characterClass, GetLevel());
+            return progression.GetStat(stat, characterClass, GetLevel()) + GetAdditiveModifier(stat);
+        }
+
+        private float GetAdditiveModifier(Stat stat)
+        {
+            float total = 0;
+            foreach (IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
+            {
+                foreach (float modifier in modifierProvider.GetAdditiveModifier(stat))
+                {
+                    total += modifier;
+                }
+            }
+
+            return total;
         }
 
         public int GetLevel()

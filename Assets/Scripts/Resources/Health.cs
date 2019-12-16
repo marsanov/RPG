@@ -8,7 +8,6 @@ using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
 using System;
-using Rpg.Stats;
 
 namespace RPG.Resources
 {

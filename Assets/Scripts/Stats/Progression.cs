@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RPG.Stats;
 using UnityEngine;
 
-namespace Rpg.Stats
+namespace RPG.Stats
 {
     [CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 0)]
 
