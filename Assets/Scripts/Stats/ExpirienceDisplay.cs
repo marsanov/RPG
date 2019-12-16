@@ -32,14 +32,14 @@ namespace RPG.Stats
             float fill = 0;
             int currentLevel = player.GetComponent<BaseStats>().GetLevel();
             expirienceToNextLevel = player.GetComponent<BaseStats>().GetStat(Stat.ExpirienceToLevelUp);
+            float currentXP = player.GetComponent<Expirience>().GetPoints();
 
             if (currentLevel == 1)
             {
-                return 0;
+                return currentXP / expirienceToNextLevel;
             }
             else
             {
-                float currentXP = player.GetComponent<Expirience>().GetPoints();
                 float prevLevelXP =
                     progresiion.GetStat(Stat.ExpirienceToLevelUp, CharacterClass.Player, currentLevel - 1);
                 

@@ -7,7 +7,7 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private MobileController mController;
+        //[SerializeField] private MobileController mController;
 
         private Health health;
         private CombatTarget target;
@@ -26,40 +26,54 @@ namespace RPG.Control
 
         private bool InteractWithCombat()
         {
-            RaycastHit[] hits;
-
-            if (Input.GetMouseButton(0))
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            foreach (RaycastHit hit in hits)
             {
-                hits = Physics.RaycastAll(GetMouseRay());
+                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+                if (target == null) continue;
 
-                for (int i = hits.Length - 1; i >= 0; i--)
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject))
                 {
-                    target = hits[i].transform.GetComponent<CombatTarget>();
-
-                    if (target == null || !GetComponent<Fighter>().CanAttack(target.gameObject))
-                        continue;
-
-                    GetComponent<Fighter>().Attack(target.gameObject);
-                    return true;
+                    continue;
                 }
-            }
 
+                if (Input.GetMouseButton(0))
+                {
+                    GetComponent<Fighter>().Attack(target.gameObject);
+                }
+                return true;
+            }
             return false;
         }
 
-        public bool InteractWithMovement()
-        {
-            Vector3 moveVector;
-            moveVector = transform.position
-                         + Vector3.right * mController.Horizontal()
-                         + Vector3.forward * mController.Vertical();
+        //public bool InteractWithMovement()
+        //{
+        //    Vector3 moveVector;
+        //    moveVector = transform.position
+        //                 + Vector3.right * mController.Horizontal()
+        //                 + Vector3.forward * mController.Vertical();
 
-            if (moveVector != transform.position)
+        //    if (moveVector != transform.position)
+        //    {
+        //        GetComponent<Mover>().StartMoveAction(moveVector);
+        //        return true;
+        //    }
+
+        //    return false;
+        //}
+
+        private bool InteractWithMovement()
+        {
+            RaycastHit hit;
+            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            if (hasHit)
             {
-                GetComponent<Mover>().StartMoveAction(moveVector);
+                if (Input.GetMouseButton(0))
+                {
+                    GetComponent<Mover>().StartMoveAction(hit.point);
+                }
                 return true;
             }
-
             return false;
         }
 
