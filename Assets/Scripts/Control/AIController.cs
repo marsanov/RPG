@@ -36,6 +36,7 @@ namespace RPG.Control
         void Update()
         {
             if (health.IsDead()) return;
+            if(Player == null) Player = GameObject.FindWithTag("Player");
 
             if (InAttackRangeOfPlayer() && fighter.CanAttack(Player))
             {

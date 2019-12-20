@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class CharCanvas : MonoBehaviour
+public class CharCanvas : NetworkBehaviour
 {
     // Update is called once per frame
     void Update()

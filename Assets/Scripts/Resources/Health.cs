@@ -8,10 +8,11 @@ using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
 using System;
+using UnityEngine.Networking;
 
 namespace RPG.Resources
 {
-    public class Health : MonoBehaviour, ISaveable
+    public class Health : NetworkBehaviour, ISaveable
     {
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] private Image healthBar;

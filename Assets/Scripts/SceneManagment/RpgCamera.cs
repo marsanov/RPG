@@ -35,7 +35,6 @@ public class RpgCamera : MonoBehaviour
 
     void Start()
     {
-
         Vector3 angles = transform.eulerAngles;
         //xDeg = angles.x;
         //yDeg = angles.y;

@@ -2,10 +2,11 @@
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Resources;
+using UnityEngine.Networking;
 
 namespace RPG.Control
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : NetworkBehaviour
     {
         //[SerializeField] private MobileController mController;
 
@@ -45,23 +46,7 @@ namespace RPG.Control
             }
             return false;
         }
-
-        //public bool InteractWithMovement()
-        //{
-        //    Vector3 moveVector;
-        //    moveVector = transform.position
-        //                 + Vector3.right * mController.Horizontal()
-        //                 + Vector3.forward * mController.Vertical();
-
-        //    if (moveVector != transform.position)
-        //    {
-        //        GetComponent<Mover>().StartMoveAction(moveVector);
-        //        return true;
-        //    }
-
-        //    return false;
-        //}
-
+        
         private bool InteractWithMovement()
         {
             RaycastHit hit;
@@ -77,7 +62,7 @@ namespace RPG.Control
             return false;
         }
 
-        private static Ray GetMouseRay()
+        private Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
