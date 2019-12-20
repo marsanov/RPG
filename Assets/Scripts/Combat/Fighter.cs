@@ -5,10 +5,11 @@ using RPG.Resources;
 using RPG.Saving;
 using RPG.Stats;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
+    public class Fighter : NetworkBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] private float timeBetweenAttacks = 1f;
         [SerializeField] private Transform rightHandTransform = null;

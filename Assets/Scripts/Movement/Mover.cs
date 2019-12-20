@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.AI;
 using RPG.Saving;
 using RPG.Resources;
+using UnityEngine.Networking;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, IAction, ISaveable
+    public class Mover : NetworkBehaviour, IAction, ISaveable
     {
         private Health health;
         private NavMeshAgent navMeshAgent;

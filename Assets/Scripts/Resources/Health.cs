@@ -8,6 +8,7 @@ using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
 using System;
+using UnityEditor;
 using UnityEngine.Networking;
 
 namespace RPG.Resources
@@ -17,7 +18,7 @@ namespace RPG.Resources
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] private Image healthBar;
 
-        private float healthPoints = -1f;
+        [SerializeField] float healthPoints = -1f;
         private bool isDead = false;
         
         void Start()
