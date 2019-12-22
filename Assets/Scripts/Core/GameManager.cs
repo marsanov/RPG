@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Resources;
+using RPG.Stats;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private const string _playerID = "Player";
+    private static Dictionary<string, Health> players = new Dictionary<string, Health>();
+
+    public static void RegisterPlayer(string netID, Health player)
     {
-        
+        string playerID = _playerID + netID;
+        players.Add(playerID, player);
+        player.transform.name = playerID;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void UnregisterPlayer(string playerID)
     {
-        
+        players.Remove(playerID);
+    }
+
+    public static Health GetPlayer(string playerID)
+    {
+        return players[playerID];
     }
 }

@@ -8,7 +8,7 @@ namespace RPG.Control
 {
     public class PlayerController : NetworkBehaviour
     {
-        //[SerializeField] private MobileController mController;
+        [SerializeField] private GameObject sphere;
 
         private Health health;
         private CombatTarget target;
@@ -50,6 +50,8 @@ namespace RPG.Control
         private bool InteractWithMovement()
         {
             RaycastHit hit;
+            
+
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
             if (hasHit)
             {

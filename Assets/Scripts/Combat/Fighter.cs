@@ -102,7 +102,7 @@ namespace RPG.Combat
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
-        
+
         //Animation Event
         void Hit()
         {
@@ -116,7 +116,7 @@ namespace RPG.Combat
             }
             else
             {
-                target.TakeDamage(gameObject, damage);
+                target.CmdTakeDamage(gameObject, damage);
             }
         }
 

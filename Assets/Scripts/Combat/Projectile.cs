@@ -59,7 +59,7 @@ namespace RPG.Combat
             if (other.GetComponent<Health>() != target) return;
             if (target.IsDead()) return;
 
-            target.TakeDamage(instigator, damage);
+            target.CmdTakeDamage(instigator, damage);
 
             speed = 0;
 

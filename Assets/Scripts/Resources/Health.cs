@@ -18,6 +18,7 @@ namespace RPG.Resources
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] private Image healthBar;
 
+        [SyncVar]
         [SerializeField] float healthPoints = -1f;
         private bool isDead = false;
         
@@ -45,8 +46,9 @@ namespace RPG.Resources
         {
             return isDead;
         }
-
-        public void TakeDamage(GameObject instigator, float damage)
+        
+        [Command]
+        public void CmdTakeDamage(GameObject instigator, float damage)
         {
             print(gameObject.name + " took damage: " + damage);
 

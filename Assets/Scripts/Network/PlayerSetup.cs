@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RPG.Resources;
+using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerSetup : NetworkBehaviour
@@ -23,14 +24,23 @@ public class PlayerSetup : NetworkBehaviour
             if (sceneCamera != null)
                 sceneCamera.gameObject.SetActive(false);
         }
+    }
 
-        transform.name = "Player " + GetComponent<NetworkIdentity>().netId;
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+
+        string netID = GetComponent<NetworkIdentity>().netId.ToString();
+        Health player = GetComponent<Health>();
+
+        GameManager.RegisterPlayer(netID, player);
     }
 
     void OnDisble()
     {
         if (sceneCamera != null)
             sceneCamera.gameObject.SetActive(true);
-        print(sceneCamera);
+
+        GameManager.UnregisterPlayer(transform.name);
     }
 }
