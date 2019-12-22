@@ -15,6 +15,7 @@ public class PlayerSetup : NetworkBehaviour
             foreach (Behaviour behaviour in componentsToDisable)
             {
                 behaviour.enabled = false;
+                gameObject.layer = LayerMask.NameToLayer("RemotePlayer");
             }
         else
         {
@@ -23,6 +24,7 @@ public class PlayerSetup : NetworkBehaviour
                 sceneCamera.gameObject.SetActive(false);
         }
 
+        transform.name = "Player " + GetComponent<NetworkIdentity>().netId;
     }
 
     void OnDisble()

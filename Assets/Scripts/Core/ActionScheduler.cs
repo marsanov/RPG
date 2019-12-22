@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RPG.Core
 {
-    public class ActionScheduler : MonoBehaviour
+    public class ActionScheduler : NetworkBehaviour
     {
         private IAction currentAction;
 

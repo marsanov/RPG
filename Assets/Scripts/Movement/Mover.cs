@@ -11,9 +11,11 @@ namespace RPG.Movement
     {
         private Health health;
         private NavMeshAgent navMeshAgent;
+        private Animator animator;
 
         void Awake()
         {
+            animator = GetComponent<Animator>();
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
@@ -41,7 +43,7 @@ namespace RPG.Movement
             Vector3 velocity = navMeshAgent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("ForwardSpeed", speed);
+            animator.SetFloat("ForwardSpeed", speed);
         }
 
         public void MoveTo(Vector3 destination)

@@ -1,11 +1,12 @@
 ﻿using RPG.Saving;
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace RPG.Stats
 {
-    public class Expirience : MonoBehaviour, ISaveable
+    public class Expirience : NetworkBehaviour, ISaveable
     {
         [SerializeField] private float expiriencePints = 0;
         

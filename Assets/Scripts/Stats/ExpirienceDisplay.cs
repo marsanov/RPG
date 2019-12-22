@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using RPG.Resources;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace RPG.Stats
 {
-    public class ExpirienceDisplay : MonoBehaviour
+    public class ExpirienceDisplay : NetworkBehaviour
     {
         [SerializeField] private float expirienceToNextLevel = 0f;
         [SerializeField] private Progression progresiion = null;

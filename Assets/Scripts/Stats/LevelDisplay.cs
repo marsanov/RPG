@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RPG.Stats
 {
-    public class LevelDisplay : MonoBehaviour
+    public class LevelDisplay : NetworkBehaviour
     {
         private BaseStats baseStats;
 

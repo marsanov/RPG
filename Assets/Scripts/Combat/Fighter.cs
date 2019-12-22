@@ -53,7 +53,7 @@ namespace RPG.Combat
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
-
+        
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
@@ -76,7 +76,7 @@ namespace RPG.Combat
         {
             return Vector3.Distance(transform.position, targetTransform.position) < currentWeapon.GetRange();
         }
-
+        
         public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
@@ -96,13 +96,13 @@ namespace RPG.Combat
             target = null;
             GetComponent<Mover>().Cancel();
         }
-
+        
         private void StopAttack()
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
-
+        
         //Animation Event
         void Hit()
         {

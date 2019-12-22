@@ -4,10 +4,11 @@ using RPG.Movement;
 using RPG.Resources;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Networking;
 
 namespace RPG.Control
 {
-    public class AIController : MonoBehaviour
+    public class AIController : NetworkBehaviour
     {
         [SerializeField] private float chaseDistance = 5f;
         [SerializeField] private float suspitionTime = 3f;
@@ -104,6 +105,7 @@ namespace RPG.Control
 
         private bool InAttackRangeOfPlayer()
         {
+            if (Player == null) return false;
             float distanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
             return distanceToPlayer < chaseDistance;
         }

@@ -2,10 +2,11 @@
 using RPG.Resources;
 using RPG.Saving;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RPG.Stats
 {
-    public class BaseStats : MonoBehaviour, ISaveable
+    public class BaseStats : NetworkBehaviour, ISaveable
     {
         [Range(1f, 99f)]
         [SerializeField] private int startingLevel = 1;

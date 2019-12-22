@@ -24,7 +24,7 @@ namespace RPG.Control
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
         }
-
+        
         private bool InteractWithCombat()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
@@ -61,7 +61,7 @@ namespace RPG.Control
             }
             return false;
         }
-
+        
         private Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
