@@ -12,6 +12,8 @@ namespace RPG.Movement
         private Health health;
         private NavMeshAgent navMeshAgent;
         private Animator animator;
+        
+        private Vector3 localVelocity;
 
         void Awake()
         {
@@ -29,19 +31,25 @@ namespace RPG.Movement
 
         public void StartMoveAction(Vector3 destination)
         {
+            CmdStartMoveAction(destination);
+        }
+        
+        private void CmdStartMoveAction(Vector3 destination)
+        {
             GetComponent<ActionScheduler>().StartAction(this);
             MoveTo(destination);
         }
 
         public void Cancel()
         {
+            if(navMeshAgent.enabled == false) return;
             navMeshAgent.isStopped = true;
         }
 
         void UpdateAnimator()
         {
             Vector3 velocity = navMeshAgent.velocity;
-            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
             animator.SetFloat("ForwardSpeed", speed);
         }

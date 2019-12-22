@@ -20,6 +20,7 @@ namespace RPG.Resources
 
         [SyncVar]
         [SerializeField] float healthPoints = -1f;
+        [SyncVar]
         private bool isDead = false;
         
         void Start()
@@ -46,11 +47,16 @@ namespace RPG.Resources
         {
             return isDead;
         }
-        
-        [Command]
-        public void CmdTakeDamage(GameObject instigator, float damage)
+
+        public void TakeDamage(GameObject instigator, float damage)
         {
-            print(gameObject.name + " took damage: " + damage);
+            CmdTakeDamage(instigator, damage);
+        }
+
+        [Command]
+        private void CmdTakeDamage(GameObject instigator, float damage)
+        {
+            Debug.Log(gameObject.name + " took damage: " + damage);
 
             healthPoints = Mathf.Max(healthPoints - damage, 0);
             HealthBarUpdate();

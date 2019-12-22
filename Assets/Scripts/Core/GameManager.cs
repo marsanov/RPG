@@ -6,23 +6,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private const string _playerID = "Player";
-    private static Dictionary<string, Health> players = new Dictionary<string, Health>();
-
-    public static void RegisterPlayer(string netID, Health player)
+    private const string _playerID = "Char";
+    private static Dictionary<string, Health> characters = new Dictionary<string, Health>();
+    
+    public static void RegisterCharacter(string netID, Health character)
     {
         string playerID = _playerID + netID;
-        players.Add(playerID, player);
-        player.transform.name = playerID;
+        characters.Add(playerID, character);
+        character.transform.name = playerID;
     }
 
-    public static void UnregisterPlayer(string playerID)
+    public static void UnregisterPlayer(string characterID)
     {
-        players.Remove(playerID);
+        characters.Remove(characterID);
     }
 
-    public static Health GetPlayer(string playerID)
+    public static Health GetPlayer(string characterID)
     {
-        return players[playerID];
+        return characters[characterID];
     }
 }

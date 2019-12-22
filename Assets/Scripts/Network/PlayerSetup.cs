@@ -12,6 +12,8 @@ public class PlayerSetup : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(gameObject.CompareTag("Enemy")) return;
+
         if (!isLocalPlayer)
             foreach (Behaviour behaviour in componentsToDisable)
             {
@@ -31,9 +33,9 @@ public class PlayerSetup : NetworkBehaviour
         base.OnStartClient();
 
         string netID = GetComponent<NetworkIdentity>().netId.ToString();
-        Health player = GetComponent<Health>();
+        Health character = GetComponent<Health>();
 
-        GameManager.RegisterPlayer(netID, player);
+        GameManager.RegisterCharacter(netID, character);
     }
 
     void OnDisble()

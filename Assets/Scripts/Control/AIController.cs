@@ -99,7 +99,7 @@ namespace RPG.Control
         private void AttackBehaviour()
         {
             timeSinceLastSawPlayer = 0;
-            GetComponent<Fighter>().Attack(Player);
+            GetComponent<Fighter>().Attack(Player.name);
             GetComponent<NavMeshAgent>().speed = 4.5f;
         }
 
