@@ -43,7 +43,7 @@ namespace RPG.Control
             }
             return false;
         }
-
+        
         private bool InteractWithMovement()
         {
             RaycastHit hit;

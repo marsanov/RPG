@@ -7,19 +7,24 @@ using UnityEngine.Networking;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, IAction, ISaveable
+    public class Mover : NetworkBehaviour, IAction, ISaveable
     {
         private Health health;
         private NavMeshAgent navMeshAgent;
         private Animator animator;
-        
         private Vector3 localVelocity;
+        private GameObject character;
 
         void Awake()
         {
             animator = GetComponent<Animator>();
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
+        }
+
+        void Start()
+        {
+            character = GameManager.GetPlayer(gameObject.name).gameObject;
         }
         
         // Update is called once per frame
@@ -28,16 +33,19 @@ namespace RPG.Movement
             navMeshAgent.enabled = !health.IsDead();
             UpdateAnimator();
         }
-
+        
         public void StartMoveAction(Vector3 destination)
         {
-            CmdStartMoveAction(destination);
-        }
-        
-        private void CmdStartMoveAction(Vector3 destination)
-        {
             GetComponent<ActionScheduler>().StartAction(this);
+            CmdStartMoveAction(destination);
             MoveTo(destination);
+        }
+
+        [Command]
+        void CmdStartMoveAction(Vector3 destination)
+        {
+            character.GetComponent<ActionScheduler>().StartAction(this);
+            character.GetComponent<Mover>().MoveTo(destination);
         }
 
         public void Cancel()

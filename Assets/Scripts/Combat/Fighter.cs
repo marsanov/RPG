@@ -20,6 +20,7 @@ namespace RPG.Combat
         private Health target;
         private float timeSinceLastAttack = Mathf.Infinity;
         private Weapon currentWeapon = null;
+        private GameObject character;
 
         private Action OnHit;
 
@@ -29,6 +30,11 @@ namespace RPG.Combat
             {
                 EquippWeapon(defaultWeapon);
             }
+        }
+
+        void Start()
+        {
+            character = GameManager.GetPlayer(gameObject.name).gameObject;
         }
 
         void Update()
@@ -74,7 +80,7 @@ namespace RPG.Combat
             GetComponent<Animator>().ResetTrigger("stopAttack");
             GetComponent<Animator>().SetTrigger("attack");
         }
-
+        
         private bool GetIsInRange(Transform targetTransform)
         {
             return Vector3.Distance(transform.position, targetTransform.position) < currentWeapon.GetRange();
@@ -82,7 +88,7 @@ namespace RPG.Combat
         
         public void Attack(string targetId)
         {
-            GetComponent<ActionScheduler>().StartAction(this);
+            character.GetComponent<ActionScheduler>().StartAction(this);
             target = GameManager.GetPlayer(targetId);
         }
 
@@ -98,12 +104,29 @@ namespace RPG.Combat
             StopAttack();
             target = null;
             GetComponent<Mover>().Cancel();
+            CmdCancel();
+        }
+
+        [Command]
+        void CmdCancel()
+        {
+            character.GetComponent<Fighter>().Cancel();
+            character.GetComponent<Fighter>().target = null;
+            character.GetComponent<Mover>().Cancel();
         }
         
         private void StopAttack()
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+            CmdStopAttack();
+        }
+
+        [Command]
+        void CmdStopAttack()
+        {
+            //character.GetComponent<Animator>().ResetTrigger("attack");
+            character.GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
         //Animation Event
