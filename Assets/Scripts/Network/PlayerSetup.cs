@@ -13,12 +13,11 @@ public class PlayerSetup : NetworkBehaviour
     void Start()
     {
         if(gameObject.CompareTag("Enemy")) return;
-
+        
         if (!isLocalPlayer)
             foreach (Behaviour behaviour in componentsToDisable)
             {
                 behaviour.enabled = false;
-                gameObject.layer = LayerMask.NameToLayer("RemotePlayer");
             }
         else
         {
@@ -44,5 +43,6 @@ public class PlayerSetup : NetworkBehaviour
             sceneCamera.gameObject.SetActive(true);
 
         GameManager.UnregisterPlayer(transform.name);
+
     }
 }

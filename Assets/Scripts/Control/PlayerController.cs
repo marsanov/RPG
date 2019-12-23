@@ -9,8 +9,7 @@ namespace RPG.Control
     public class PlayerController : NetworkBehaviour
     {
         private Health health;
-        private CombatTarget target;
-
+        
         void Start()
         {
             health = GetComponent<Health>();
@@ -38,13 +37,20 @@ namespace RPG.Control
 
                 if (Input.GetMouseButton(0))
                 {
+                    CmdDeb(target.gameObject);
                     GetComponent<Fighter>().Attack(target.gameObject.name);
                 }
                 return true;
             }
             return false;
         }
-        
+
+        [Command]
+        void CmdDeb(GameObject target)
+        {
+            Debug.Log(target);
+        }
+
         private bool InteractWithMovement()
         {
             RaycastHit hit;

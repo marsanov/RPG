@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using RPG.Resources;
 using RPG.Stats;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
-    private const string _playerID = "Char";
+    private const string _playerID = "Character";
     private static Dictionary<string, Health> characters = new Dictionary<string, Health>();
     
     public static void RegisterCharacter(string netID, Health character)

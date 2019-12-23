@@ -17,10 +17,9 @@ namespace RPG.Resources
     {
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] private Image healthBar;
-
+        
         [SyncVar]
-        [SerializeField] float healthPoints = -1f;
-        [SyncVar]
+        float healthPoints = -1f;
         private bool isDead = false;
         
         void Start()
@@ -47,14 +46,8 @@ namespace RPG.Resources
         {
             return isDead;
         }
-
+        
         public void TakeDamage(GameObject instigator, float damage)
-        {
-            CmdTakeDamage(instigator, damage);
-        }
-
-        [Command]
-        private void CmdTakeDamage(GameObject instigator, float damage)
         {
             Debug.Log(gameObject.name + " took damage: " + damage);
 
@@ -66,7 +59,7 @@ namespace RPG.Resources
                 AwardExperience(instigator);
             }
         }
-
+        
         public float GetHealthPoints()
         {
             return healthPoints;
@@ -86,7 +79,7 @@ namespace RPG.Resources
             float expirienceReward = GetComponent<BaseStats>().GetStat(Stat.ExpirienceRaward);
             expirience.GainExpirience(expirienceReward);
         }
-
+        
         private void Die()
         {
             if(isDead) return;

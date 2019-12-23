@@ -13,6 +13,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expiriencePints: 0
+--- !u!114 &2556116023667950684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707879539256850578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18e15ed5495c434d969378156376a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 168048147384349443}
+  m_ParameterSendBits: 15
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
+--- !u!114 &7362857237500918208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707879539256850578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 2
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &7465743946249447676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 6583468141061340304, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: componentsToDisable.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6583468141061340304, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
@@ -700,6 +742,41 @@ PrefabInstance:
       propertyPath: componentsToDisable.Array.data[4]
       value: 
       objectReference: {fileID: 8589542403600624328}
+    - target: {fileID: 6583468141061340304, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.data[5]
+      value: 
+      objectReference: {fileID: 4713113108706626979}
+    - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 7465743946249447676}
+    - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.data[1]
+      value: 
+      objectReference: {fileID: 8589542403600624330}
+    - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.data[2]
+      value: 
+      objectReference: {fileID: 8589542403600624331}
+    - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.data[3]
+      value: 
+      objectReference: {fileID: 8589542403600624328}
+    - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.data[4]
+      value: 
+      objectReference: {fileID: 6035375084201320794}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}
@@ -712,6 +789,24 @@ GameObject:
 --- !u!4 &6967158255897473674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5849280216334650162, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3574873871690119608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4713113108706626979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8139367638420173851, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3574873871690119608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707879539256850578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b258246d8b6f43745bfed20c3a76f1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &168048147384349443 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3731661370671467195, guid: 9a6f3982ce81e584fa458028a5dd96d6,
     type: 3}
   m_PrefabInstance: {fileID: 3574873871690119608}
   m_PrefabAsset: {fileID: 0}

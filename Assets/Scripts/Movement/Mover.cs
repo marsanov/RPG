@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 namespace RPG.Movement
 {
-    public class Mover : NetworkBehaviour, IAction, ISaveable
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         private Health health;
         private NavMeshAgent navMeshAgent;

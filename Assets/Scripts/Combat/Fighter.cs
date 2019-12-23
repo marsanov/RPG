@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using RPG.Core;
 using RPG.Movement;
 using RPG.Resources;
@@ -19,6 +20,8 @@ namespace RPG.Combat
         private Health target;
         private float timeSinceLastAttack = Mathf.Infinity;
         private Weapon currentWeapon = null;
+
+        private Action OnHit;
 
         void Awake()
         {
@@ -65,7 +68,7 @@ namespace RPG.Combat
                 timeSinceLastAttack = 0;
             }
         }
-
+        
         private void TriggerAttack()
         {
             GetComponent<Animator>().ResetTrigger("stopAttack");
@@ -77,12 +80,19 @@ namespace RPG.Combat
             return Vector3.Distance(transform.position, targetTransform.position) < currentWeapon.GetRange();
         }
         
-        public void Attack(string combatTargetID)
+        public void Attack(string targetId)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            target = GameManager.GetPlayer(combatTargetID).GetComponent<Health>();
+            target = GameManager.GetPlayer(targetId);
+            CmdDeb(target.ToString());
         }
 
+        [Command]
+        void CmdDeb(string str)
+        {
+            Debug.Log("Fighter.cs || "+str);
+        }
+        
         public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) { return false; }
@@ -116,10 +126,18 @@ namespace RPG.Combat
             }
             else
             {
-                target.TakeDamage(gameObject, damage);
+                CmdDealDamage(gameObject, damage, target.gameObject.name);
             }
         }
 
+        [Command]
+        void CmdDealDamage(GameObject gameObject, float damage, string targetID)
+        {
+            Debug.Log(target + " is attacked");
+            target = GameManager.GetPlayer(targetID);
+            target.TakeDamage(gameObject, damage);
+        }
+        
         void Shoot()
         {
             Hit();
