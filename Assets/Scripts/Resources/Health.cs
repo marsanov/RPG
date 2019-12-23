@@ -55,7 +55,7 @@ namespace RPG.Resources
             HealthBarUpdate();
             if (healthPoints == 0)
             {
-                Die();
+                CmdDie();
                 AwardExperience(instigator);
             }
         }
@@ -80,7 +80,8 @@ namespace RPG.Resources
             expirience.GainExpirience(expirienceReward);
         }
         
-        private void Die()
+        [Command]
+        private void CmdDie()
         {
             if(isDead) return;
 
@@ -102,7 +103,7 @@ namespace RPG.Resources
             HealthBarUpdate();
             if (healthPoints <= 0)
             {
-                Die();
+                CmdDie();
             }
         }
 

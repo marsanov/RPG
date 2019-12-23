@@ -84,15 +84,8 @@ namespace RPG.Combat
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = GameManager.GetPlayer(targetId);
-            CmdDeb(target.ToString());
         }
 
-        [Command]
-        void CmdDeb(string str)
-        {
-            Debug.Log("Fighter.cs || "+str);
-        }
-        
         public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) { return false; }
@@ -133,7 +126,6 @@ namespace RPG.Combat
         [Command]
         void CmdDealDamage(GameObject gameObject, float damage, string targetID)
         {
-            Debug.Log(target + " is attacked");
             target = GameManager.GetPlayer(targetID);
             target.TakeDamage(gameObject, damage);
         }

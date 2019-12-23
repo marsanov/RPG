@@ -750,7 +750,7 @@ PrefabInstance:
     - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: componentsToDisable.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
@@ -777,6 +777,11 @@ PrefabInstance:
       propertyPath: componentsToDisable.Array.data[4]
       value: 
       objectReference: {fileID: 6035375084201320794}
+    - target: {fileID: 4365239191277437278, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: componentsToDisable.Array.data[5]
+      value: 
+      objectReference: {fileID: 4713113108706626979}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}
