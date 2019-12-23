@@ -95,7 +95,7 @@ namespace RPG.Control
         #endregion
 
         
-        #region Attack
+        #region CmdAttack
         private void AttackBehaviour()
         {
             timeSinceLastSawPlayer = 0;

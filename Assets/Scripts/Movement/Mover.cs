@@ -11,13 +11,13 @@ namespace RPG.Movement
     {
         private Health health;
         private NavMeshAgent navMeshAgent;
-        private Animator animator;
+        private NetworkAnimator networkAnimator;
         private Vector3 localVelocity;
         private GameObject character;
 
         void Awake()
         {
-            animator = GetComponent<Animator>();
+            networkAnimator = GetComponent<NetworkAnimator>();
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
@@ -59,7 +59,7 @@ namespace RPG.Movement
             Vector3 velocity = navMeshAgent.velocity;
             localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
-            animator.SetFloat("ForwardSpeed", speed);
+            networkAnimator.animator.SetFloat("ForwardSpeed", speed);
         }
 
         public void MoveTo(Vector3 destination)

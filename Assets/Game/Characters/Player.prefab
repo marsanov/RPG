@@ -13,26 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expiriencePints: 0
---- !u!114 &2556116023667950684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707879539256850578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18e15ed5495c434d969378156376a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 168048147384349443}
-  m_ParameterSendBits: 15
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
 --- !u!114 &7362857237500918208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,6 +609,11 @@ PrefabInstance:
       propertyPath: m_AssetId.i15
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3880009022447084060, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: m_LocalPlayerAuthority
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 117324438144504112, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: characterClass
@@ -809,12 +794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b258246d8b6f43745bfed20c3a76f1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &168048147384349443 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3731661370671467195, guid: 9a6f3982ce81e584fa458028a5dd96d6,
-    type: 3}
-  m_PrefabInstance: {fileID: 3574873871690119608}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6035375084201320794 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7087950516926945506, guid: 9a6f3982ce81e584fa458028a5dd96d6,

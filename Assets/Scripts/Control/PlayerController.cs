@@ -6,13 +6,15 @@ using UnityEngine.Networking;
 
 namespace RPG.Control
 {
-    public class PlayerController : NetworkBehaviour
+    public class PlayerController : MonoBehaviour
     {
         private Health health;
+        private GameObject character;
         
         void Start()
         {
             health = GetComponent<Health>();
+            character = GameManager.GetPlayer(gameObject.name).gameObject;
         }
 
         void Update()
@@ -37,7 +39,7 @@ namespace RPG.Control
 
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Fighter>().Attack(target.gameObject.name);
+                    character.GetComponent<Fighter>().Attack(target.gameObject.name);
                 }
                 return true;
             }
@@ -53,7 +55,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().StartMoveAction(hit.point);
+                    character.GetComponent<Mover>().StartMoveAction(hit.point);
                 }
                 return true;
             }

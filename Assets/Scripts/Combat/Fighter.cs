@@ -21,6 +21,8 @@ namespace RPG.Combat
         private float timeSinceLastAttack = Mathf.Infinity;
         private Weapon currentWeapon = null;
         private GameObject character;
+        private Animator animator;
+        private NetworkAnimator networkAnimator;
 
         private Action OnHit;
 
@@ -30,11 +32,14 @@ namespace RPG.Combat
             {
                 EquippWeapon(defaultWeapon);
             }
+
+            animator = GetComponent<Animator>();
         }
 
         void Start()
         {
             character = GameManager.GetPlayer(gameObject.name).gameObject;
+            networkAnimator = GetComponent<NetworkAnimator>();
         }
 
         void Update()
@@ -59,8 +64,7 @@ namespace RPG.Combat
         public void EquippWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
-            Animator animator = GetComponent<Animator>();
-            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            weapon.Spawn(rightHandTransform, leftHandTransform, networkAnimator);
         }
         
         private void AttackBehaviour()
@@ -77,8 +81,8 @@ namespace RPG.Combat
         
         private void TriggerAttack()
         {
-            GetComponent<Animator>().ResetTrigger("stopAttack");
-            GetComponent<Animator>().SetTrigger("attack");
+            networkAnimator.animator.ResetTrigger("stopAttack");
+            networkAnimator.animator.SetTrigger("attack");
         }
         
         private bool GetIsInRange(Transform targetTransform)
@@ -104,31 +108,14 @@ namespace RPG.Combat
             StopAttack();
             target = null;
             GetComponent<Mover>().Cancel();
-            CmdCancel();
         }
 
-        [Command]
-        void CmdCancel()
-        {
-            character.GetComponent<Fighter>().Cancel();
-            character.GetComponent<Fighter>().target = null;
-            character.GetComponent<Mover>().Cancel();
-        }
-        
         private void StopAttack()
         {
-            GetComponent<Animator>().ResetTrigger("attack");
-            GetComponent<Animator>().SetTrigger("stopAttack");
-            CmdStopAttack();
+            networkAnimator.animator.ResetTrigger("attack");
+            networkAnimator.animator.SetTrigger("stopAttack");
         }
-
-        [Command]
-        void CmdStopAttack()
-        {
-            //character.GetComponent<Animator>().ResetTrigger("attack");
-            character.GetComponent<Animator>().SetTrigger("stopAttack");
-        }
-
+        
         //Animation Event
         void Hit()
         {
