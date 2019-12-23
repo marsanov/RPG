@@ -20,6 +20,7 @@ namespace RPG.Resources
         
         [SyncVar]
         float healthPoints = -1f;
+        [SyncVar]
         private bool isDead = false;
         
         void Start()
@@ -55,7 +56,7 @@ namespace RPG.Resources
             HealthBarUpdate();
             if (healthPoints == 0)
             {
-                CmdDie();
+                RpcDie();
                 AwardExperience(instigator);
             }
         }
@@ -80,17 +81,20 @@ namespace RPG.Resources
             expirience.GainExpirience(expirienceReward);
         }
         
-        [Command]
-        private void CmdDie()
+        [ClientRpc]
+        private void RpcDie()
         {
             if(isDead) return;
-
+            
             isDead = true;
+
             GetComponent<Animator>().SetTrigger("die");
             GetComponent<CapsuleCollider>().enabled = false;
             transform.GetChild(1).gameObject.SetActive(false);
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
+
+        
 
         public object CaptureState()
         {
@@ -103,7 +107,7 @@ namespace RPG.Resources
             HealthBarUpdate();
             if (healthPoints <= 0)
             {
-                CmdDie();
+                RpcDie();
             }
         }
 
