@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class GameManager : NetworkBehaviour
 {
     private const string _playerID = "Character";
-    private static Dictionary<string, Health> characters = new Dictionary<string, Health>();
+    public static Dictionary<string, Health> characters = new Dictionary<string, Health>();
     
     public static void RegisterCharacter(string netID, Health character)
     {

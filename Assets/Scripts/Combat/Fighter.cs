@@ -86,7 +86,6 @@ namespace RPG.Combat
         public void CmdAttack(string targetId)
         {
             Health character = GameManager.GetPlayer(gameObject.name);
-            Debug.Log(gameObject + " ---> " + targetId);
 
             character.GetComponent<ActionScheduler>().StartAction(this);
             character.GetComponent<Fighter>().target = GameManager.GetPlayer(targetId);

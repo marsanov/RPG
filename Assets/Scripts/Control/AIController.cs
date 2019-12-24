@@ -10,13 +10,14 @@ namespace RPG.Control
 {
     public class AIController : NetworkBehaviour
     {
-        [SerializeField] private float chaseDistance = 5f;
+        public float chaseDistance = 5f;
+        public GameObject player;
+
         [SerializeField] private float suspitionTime = 3f;
         [SerializeField] private float waypointDwellTime = 3f;
         [SerializeField] private PatrolPath patrolPath;
         [SerializeField] private float waypointTolerance = 1f;
 
-        private GameObject Player;
         private Fighter fighter;
         private Health health;
         private Mover mover;
@@ -24,31 +25,35 @@ namespace RPG.Control
         private float timeSinceLastSawPlayer = Mathf.Infinity;
         private float timeSinseArrivedAtWaypoint = Mathf.Infinity;
         private int currentWaypointIndex = 0;
+        private bool isFighting = false;
 
         void Start()
         {
-            Player = GameObject.FindWithTag("Player");
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
             guardPosition = transform.position;
+            GetComponent<SphereCollider>().radius = chaseDistance;
         }
 
         void Update()
         {
             if (health.IsDead()) return;
-            if(Player == null) Player = GameObject.FindWithTag("Player");
+            if(player == null) return;
 
-            if (InAttackRangeOfPlayer() && fighter.CanAttack(Player))
+            if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
+                isFighting = true;
                 AttackBehaviour();
             }
             else if (timeSinceLastSawPlayer < suspitionTime)
             {
+                isFighting = false;
                 SuspicionBehaviour();
             }
             else
             {
+                isFighting = false;
                 PatrolBehaviour();
             }
 
@@ -99,15 +104,22 @@ namespace RPG.Control
         private void AttackBehaviour()
         {
             timeSinceLastSawPlayer = 0;
-            GetComponent<Fighter>().CmdAttack(Player.name);
+            GetComponent<Fighter>().CmdAttack(player.name);
             GetComponent<NavMeshAgent>().speed = 4.5f;
         }
 
         private bool InAttackRangeOfPlayer()
         {
-            if (Player == null) return false;
-            float distanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
+            if (player == null) return false;
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             return distanceToPlayer < chaseDistance;
+        }
+
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player" && !isFighting)
+                player = other.gameObject;
         }
         #endregion
 

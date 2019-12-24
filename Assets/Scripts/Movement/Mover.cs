@@ -32,7 +32,10 @@ namespace RPG.Movement
         void Update()
         {
             navMeshAgent.enabled = !health.IsDead();
-            RpcUpdateAnimator();
+            if (isClient)
+                UpdateAnimator();
+            else
+                RpcUpdateAnimator();
         }
 
         [Command]
@@ -51,6 +54,14 @@ namespace RPG.Movement
 
         [ClientRpc]
         void RpcUpdateAnimator()
+        {
+            Vector3 velocity = navMeshAgent.velocity;
+            character.GetComponent<Mover>().localVelocity = transform.InverseTransformDirection(velocity);
+            float speed = localVelocity.z;
+            character.GetComponent<Mover>().animator.SetFloat("ForwardSpeed", speed);
+        }
+
+        void UpdateAnimator()
         {
             Vector3 velocity = navMeshAgent.velocity;
             character.GetComponent<Mover>().localVelocity = transform.InverseTransformDirection(velocity);

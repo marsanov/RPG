@@ -92,6 +92,9 @@ namespace RPG.Resources
             GetComponent<CapsuleCollider>().enabled = false;
             transform.GetChild(1).gameObject.SetActive(false);
             GetComponent<ActionScheduler>().CancelCurrentAction();
+
+            if (gameObject.tag == "Enemy")
+                transform.GetChild(2).GetComponent<CapsuleCollider>().enabled = false;
         }
 
         
