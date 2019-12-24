@@ -16,13 +16,11 @@ namespace RPG.Combat
         [SerializeField] private Transform rightHandTransform = null;
         [SerializeField] private Transform leftHandTransform = null;
         [SerializeField] private Weapon defaultWeapon = null;
-
-        private Health target;
+        
+        public Health target;
         private float timeSinceLastAttack = Mathf.Infinity;
         private Weapon currentWeapon = null;
         private GameObject character;
-        private Animator animator;
-        private NetworkAnimator networkAnimator;
 
         private Action OnHit;
 
@@ -32,14 +30,6 @@ namespace RPG.Combat
             {
                 EquippWeapon(defaultWeapon);
             }
-
-            animator = GetComponent<Animator>();
-        }
-
-        void Start()
-        {
-            character = GameManager.GetPlayer(gameObject.name).gameObject;
-            networkAnimator = GetComponent<NetworkAnimator>();
         }
 
         void Update()
@@ -52,11 +42,11 @@ namespace RPG.Combat
 
             if (!GetIsInRange(target.transform))
             {
-                GetComponent<Mover>().MoveTo(target.transform.position);
+                GetComponent<Mover>().RpcMoveTo(target.transform.position);
             }
             else
             {
-                GetComponent<Mover>().Cancel();
+                GetComponent<Mover>().RpcCancel();
                 AttackBehaviour();
             }
         }
@@ -64,9 +54,10 @@ namespace RPG.Combat
         public void EquippWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
-            weapon.Spawn(rightHandTransform, leftHandTransform, networkAnimator);
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
-        
+
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
@@ -74,26 +65,31 @@ namespace RPG.Combat
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
                 //this will trigger the Hit() event
-                TriggerAttack();
+                RpcTriggerAttack();
                 timeSinceLastAttack = 0;
             }
         }
-        
-        private void TriggerAttack()
+
+        [ClientRpc]
+        private void RpcTriggerAttack()
         {
-            networkAnimator.animator.ResetTrigger("stopAttack");
-            networkAnimator.animator.SetTrigger("attack");
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+            GetComponent<Animator>().SetTrigger("attack");
         }
-        
+
         private bool GetIsInRange(Transform targetTransform)
         {
             return Vector3.Distance(transform.position, targetTransform.position) < currentWeapon.GetRange();
         }
-        
-        public void Attack(string targetId)
+
+        [Command]
+        public void CmdAttack(string targetId)
         {
+            Health character = GameManager.GetPlayer(gameObject.name);
+            Debug.Log(gameObject + " ---> " + targetId);
+
             character.GetComponent<ActionScheduler>().StartAction(this);
-            target = GameManager.GetPlayer(targetId);
+            character.GetComponent<Fighter>().target = GameManager.GetPlayer(targetId);
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -103,19 +99,21 @@ namespace RPG.Combat
             return targetToTest != null && !targetToTest.IsDead();
         }
 
-        public void Cancel()
+        [ClientRpc]
+        public void RpcCancel()
         {
-            StopAttack();
+            RpcStopAttack();
             target = null;
-            GetComponent<Mover>().Cancel();
-        }
-
-        private void StopAttack()
-        {
-            networkAnimator.animator.ResetTrigger("attack");
-            networkAnimator.animator.SetTrigger("stopAttack");
+            GetComponent<Mover>().RpcCancel();
         }
         
+        [ClientRpc]
+        private void RpcStopAttack()
+        {
+            GameManager.GetPlayer(gameObject.name).GetComponent<Animator>().ResetTrigger("attack");
+            GameManager.GetPlayer(gameObject.name).GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
         //Animation Event
         void Hit()
         {
@@ -139,7 +137,7 @@ namespace RPG.Combat
             target = GameManager.GetPlayer(targetID);
             target.TakeDamage(gameObject, damage);
         }
-        
+
         void Shoot()
         {
             Hit();
@@ -152,7 +150,7 @@ namespace RPG.Combat
 
         public void RestoreState(object state)
         {
-            string weaponName = (string) state;
+            string weaponName = (string)state;
             Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquippWeapon(weapon);
         }

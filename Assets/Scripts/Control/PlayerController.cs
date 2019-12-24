@@ -6,15 +6,13 @@ using UnityEngine.Networking;
 
 namespace RPG.Control
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : NetworkBehaviour
     {
         private Health health;
-        private GameObject character;
-        
+
         void Start()
         {
             health = GetComponent<Health>();
-            character = GameManager.GetPlayer(gameObject.name).gameObject;
         }
 
         void Update()
@@ -23,7 +21,7 @@ namespace RPG.Control
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
         }
-        
+
         private bool InteractWithCombat()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
@@ -39,29 +37,29 @@ namespace RPG.Control
 
                 if (Input.GetMouseButton(0))
                 {
-                    character.GetComponent<Fighter>().Attack(target.gameObject.name);
+                    GetComponent<Fighter>().CmdAttack(target.gameObject.name);
                 }
                 return true;
             }
             return false;
         }
-        
+
         private bool InteractWithMovement()
         {
             RaycastHit hit;
-            
+
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
             if (hasHit)
             {
                 if (Input.GetMouseButton(0))
                 {
-                    character.GetComponent<Mover>().StartMoveAction(hit.point);
+                    GetComponent<Mover>().CmdStartMoveAction(hit.point);
                 }
                 return true;
             }
             return false;
         }
-        
+
         private Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);

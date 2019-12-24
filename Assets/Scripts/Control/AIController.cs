@@ -73,7 +73,7 @@ namespace RPG.Control
 
             if (timeSinseArrivedAtWaypoint > waypointDwellTime)
             {
-                mover.StartMoveAction(nextPosition);
+                mover.CmdStartMoveAction(nextPosition);
             }
         }
 
@@ -99,7 +99,7 @@ namespace RPG.Control
         private void AttackBehaviour()
         {
             timeSinceLastSawPlayer = 0;
-            GetComponent<Fighter>().Attack(Player.name);
+            GetComponent<Fighter>().CmdAttack(Player.name);
             GetComponent<NavMeshAgent>().speed = 4.5f;
         }
 

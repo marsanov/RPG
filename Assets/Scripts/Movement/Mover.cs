@@ -11,13 +11,14 @@ namespace RPG.Movement
     {
         private Health health;
         private NavMeshAgent navMeshAgent;
-        private NetworkAnimator networkAnimator;
+        private Animator animator;
+        [SyncVar]
         private Vector3 localVelocity;
         private GameObject character;
 
         void Awake()
         {
-            networkAnimator = GetComponent<NetworkAnimator>();
+            animator = GetComponent<Animator>();
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
@@ -26,43 +27,39 @@ namespace RPG.Movement
         {
             character = GameManager.GetPlayer(gameObject.name).gameObject;
         }
-        
+
         // Update is called once per frame
         void Update()
         {
             navMeshAgent.enabled = !health.IsDead();
-            UpdateAnimator();
-        }
-        
-        public void StartMoveAction(Vector3 destination)
-        {
-            GetComponent<ActionScheduler>().StartAction(this);
-            CmdStartMoveAction(destination);
-            MoveTo(destination);
+            RpcUpdateAnimator();
         }
 
         [Command]
-        void CmdStartMoveAction(Vector3 destination)
+        public void CmdStartMoveAction(Vector3 destination)
         {
             character.GetComponent<ActionScheduler>().StartAction(this);
-            character.GetComponent<Mover>().MoveTo(destination);
+            character.GetComponent<Mover>().RpcMoveTo(destination);
         }
-
-        public void Cancel()
+        
+        [ClientRpc]
+        public void RpcCancel()
         {
-            if(navMeshAgent.enabled == false) return;
+            if (navMeshAgent.enabled == false) return;
             navMeshAgent.isStopped = true;
         }
 
-        void UpdateAnimator()
+        [ClientRpc]
+        void RpcUpdateAnimator()
         {
             Vector3 velocity = navMeshAgent.velocity;
-            localVelocity = transform.InverseTransformDirection(velocity);
+            character.GetComponent<Mover>().localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
-            networkAnimator.animator.SetFloat("ForwardSpeed", speed);
+            character.GetComponent<Mover>().animator.SetFloat("ForwardSpeed", speed);
         }
 
-        public void MoveTo(Vector3 destination)
+        [ClientRpc]
+        public void RpcMoveTo(Vector3 destination)
         {
             navMeshAgent.destination = destination;
             navMeshAgent.isStopped = false;

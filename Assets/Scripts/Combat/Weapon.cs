@@ -1,6 +1,5 @@
 ﻿using RPG.Resources;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace RPG.Combat
 {
@@ -17,7 +16,7 @@ namespace RPG.Combat
 
         private const string weaponName = "Weapon";
 
-        public void Spawn(Transform rightHand, Transform leftHand, NetworkAnimator networkAnimator)
+        public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
             DestroyOldWeapon(rightHand, leftHand);
 
@@ -31,11 +30,11 @@ namespace RPG.Combat
             var overrideController = animatorOverride.runtimeAnimatorController as AnimatorOverrideController;
             if (animatorOverride != null)
             {
-                networkAnimator.animator.runtimeAnimatorController = animatorOverride;
+                animator.runtimeAnimatorController = animatorOverride;
             }
             else if (overrideController != null)
             {
-                networkAnimator.animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
+                animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
             }
         }
 
