@@ -78,7 +78,7 @@ namespace RPG.Resources
             if(expirience == null) return;
 
             float expirienceReward = GetComponent<BaseStats>().GetStat(Stat.ExpirienceRaward);
-            expirience.GainExpirience(expirienceReward);
+            expirience.RpcGainExpirience(expirienceReward);
         }
         
         [ClientRpc]

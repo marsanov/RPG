@@ -8,11 +8,13 @@ namespace RPG.Stats
 {
     public class Expirience : NetworkBehaviour, ISaveable
     {
+        [SyncVar]
         [SerializeField] private float expiriencePints = 0;
         
         public event Action onExpirienceGained;
 
-        public void GainExpirience(float expirience)
+        [ClientRpc]
+        public void RpcGainExpirience(float expirience)
         {
             expiriencePints += expirience;
             onExpirienceGained();

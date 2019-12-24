@@ -10,11 +10,13 @@ namespace RPG.Stats
 {
     public class ExpirienceDisplay : NetworkBehaviour
     {
-        [SerializeField] private float expirienceToNextLevel = 0f;
         [SerializeField] private Progression progresiion = null;
-
-        private GameObject player = null;
+        [SerializeField] private GameObject player;
+        
+        [SyncVar]
         private float currentPlayerExpirience = 0;
+        [SyncVar]
+        private float expirienceToNextLevel = 0f;
 
         // Start is called before the first frame update
         void Start()
