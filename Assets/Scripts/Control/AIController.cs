@@ -11,7 +11,7 @@ namespace RPG.Control
     public class AIController : NetworkBehaviour
     {
         public float chaseDistance = 5f;
-        public GameObject player;
+        public GameObject player = null;
 
         [SerializeField] private float suspitionTime = 3f;
         [SerializeField] private float waypointDwellTime = 3f;
@@ -39,11 +39,12 @@ namespace RPG.Control
         void Update()
         {
             if (health.IsDead()) return;
-            if(player == null) return;
-            if (player.GetComponent<Transform>() == null) player = null;
+            if(player != null)
+                if (player.GetComponent<Transform>() == null) player = null;
 
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
+                if (player == null) return;
                 isFighting = true;
                 AttackBehaviour();
             }

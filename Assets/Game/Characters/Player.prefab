@@ -1023,6 +1023,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6967158255897473674}
+    - target: {fileID: 532616175266977495, guid: c1915a5c20321f142a165f3a83fdd5e9,
+        type: 3}
+      propertyPath: allowMouseInputX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 532616175266977495, guid: c1915a5c20321f142a165f3a83fdd5e9,
+        type: 3}
+      propertyPath: allowMouseInputY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 532616175266977494, guid: c1915a5c20321f142a165f3a83fdd5e9,
         type: 3}
       propertyPath: m_LocalPosition.x

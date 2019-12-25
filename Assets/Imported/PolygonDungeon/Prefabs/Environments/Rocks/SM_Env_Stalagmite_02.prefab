@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 436642}
   - component: {fileID: 3331312}
   - component: {fileID: 2374778}
-  - component: {fileID: 7162926882925196427}
   m_Layer: 0
   m_Name: SM_Env_Stalagmite_02
   m_TagString: Untagged
@@ -78,16 +77,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7162926882925196427
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 2.0213015, z: 0.21}
-  m_Center: {x: -0.00000047683716, y: 0.7900712, z: 0.0000001937151}
