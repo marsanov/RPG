@@ -40,6 +40,7 @@ namespace RPG.Control
         {
             if (health.IsDead()) return;
             if(player == null) return;
+            if (player.GetComponent<Transform>() == null) player = null;
 
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {

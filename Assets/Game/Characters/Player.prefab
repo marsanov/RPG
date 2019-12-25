@@ -702,6 +702,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 5588922333045551144}
+    - target: {fileID: 4660113570076317498, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6682409894185542675, guid: 9a6f3982ce81e584fa458028a5dd96d6,
         type: 3}
       propertyPath: m_ParameterSendBits
@@ -767,6 +772,15 @@ PrefabInstance:
       propertyPath: componentsToDisable.Array.data[5]
       value: 
       objectReference: {fileID: 4713113108706626979}
+    - target: {fileID: 3366156156515658251, guid: 9a6f3982ce81e584fa458028a5dd96d6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135187004356337, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9a6f3982ce81e584fa458028a5dd96d6, type: 3}

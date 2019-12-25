@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using  RPG.Resources;
+using UnityEngine.Networking;
 
 namespace RPG.Combat
 {
@@ -56,7 +57,9 @@ namespace RPG.Combat
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<Health>() != target) return;
+            Debug.Log(other.name);
+            if (other.name != "AttackCollider") return;
+            if (other.transform.parent.GetComponent<Health>() != target) return;
             if (target.IsDead()) return;
 
             target.TakeDamage(instigator, damage);
@@ -65,7 +68,8 @@ namespace RPG.Combat
 
             if (hitEffect != null)
             {
-                Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+                GameObject _hitEffect = Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+                NetworkServer.Spawn(_hitEffect);
             }
 
             foreach (GameObject toDestroy in destroyOnHit)
@@ -74,6 +78,7 @@ namespace RPG.Combat
             }
 
             Destroy(gameObject, lifeAfterImpact);
+            NetworkServer.Destroy(gameObject);
         }
     }
 

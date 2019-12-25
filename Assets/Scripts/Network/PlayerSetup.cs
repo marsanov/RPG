@@ -43,6 +43,5 @@ public class PlayerSetup : NetworkBehaviour
             sceneCamera.gameObject.SetActive(true);
 
         GameManager.UnregisterPlayer(transform.name);
-
     }
 }
